@@ -50,6 +50,7 @@
           });
         }
         addNote(newNote) {
+          document.querySelector("#notes-message").value = "";
           console.log("You clicked add Note");
           this.model.addNote(newNote);
           this.displayNotes();
