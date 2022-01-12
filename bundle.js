@@ -32,9 +32,10 @@
         constructor(model2) {
           this.model = model2;
           this.mainContainerEl = document.querySelector("#main-container");
-          this.buttonEl = document.querySelector("#add-note-button");
-          this.buttonEl.addEventListener("click", () => {
-            this.addNote();
+          this.addButtonEl = document.querySelector("#add-note-button");
+          this.addButtonEl.addEventListener("click", () => {
+            const newNote = document.querySelector("#notes-message").value;
+            this.addNote(newNote);
           });
         }
         displayNotes() {
@@ -46,10 +47,9 @@
             this.mainContainerEl.append(noteEl);
           });
         }
-        addNote() {
+        addNote(newNote) {
           console.log("You clicked add Note");
-          const noteEl = document.querySelector("#notes-message").value;
-          this.model.addNote(noteEl);
+          this.model.addNote(newNote);
           this.displayNotes();
         }
       };
