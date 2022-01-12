@@ -1,3 +1,5 @@
 # notes-app
 
-This will be a notes app
+This is a notes app
+
+
