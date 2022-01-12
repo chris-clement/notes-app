@@ -37,4 +37,26 @@ describe('class notesView', () => {
     expect(document.querySelectorAll('div.note').length).toEqual(1);
 
   });
+  it('displayNotes shows the correct number of notes', () => {
+    document.body.innerHTML = fs.readFileSync('./index.html');
+
+    const model = new NotesModel()
+    const view = new NotesView(model)
+    
+    const inputEl = document.querySelector('#notes-message');
+    inputEl.value = "Walk the Dog";
+
+    const buttonEl = document.querySelector('#add-note-button');
+    buttonEl.click();
+
+    view.displayNotes()
+
+    const inputEl2 = document.querySelector('#notes-message');
+    inputEl2.value = "Go to the gym";
+
+    buttonEl.click();
+
+    expect(document.querySelectorAll('div.note').length).toEqual(2);
+ 
+  });
 });

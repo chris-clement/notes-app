@@ -40,7 +40,9 @@
         }
         displayNotes() {
           const notes = this.model.getNotes();
+          document.querySelectorAll(".note").forEach((note) => note.remove());
           notes.forEach((note) => {
+            console.log(note);
             const noteEl = document.createElement("div");
             noteEl.innerText = note;
             noteEl.className = "note";
